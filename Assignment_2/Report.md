@@ -57,11 +57,11 @@ RMS_TKE was included to monitor the turbulence model, as the correct functional 
 
 ### Results
 The axial and radial distributions followed the theoretical asymptotic behaviour and showed good agreement with experimental data from [1]. 
-![Results not found](https://github.com/alextidy/SU2_GSoC_26/tree/main/Assignment_2/axial.png)
-![Results not found](https://github.com/alextidy/SU2_GSoC_26/tree/main/Assignment_2/radial.png)
+![Results not found](axial.png)
+![Results not found](radial.png)
 
 Residuals were seen to converge satisfactorily.
-![Results not found](https://github.com/alextidy/SU2_GSoC_26/tree/main/Assignment_2/residuals.png)
+![Results not found](residuals.png)
 
 ### References
 [1] https://www.researchgate.net/publication/254224677_Investigation_of_the_Mixing_Process_in_an_Axisymmetric_Turbulent_Jet_Using_PIV_and_LIF

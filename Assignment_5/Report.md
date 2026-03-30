@@ -23,6 +23,6 @@ The new build was created and installed using the commands:
 ## Results
 As the test case in Assignment 2 was run using an incompressilbe solve to match the experimental data provided, the compressible test case from Assignment 3 was rerun. The SoundSpeed output in Paraview can be seen below:
 
-![Results not found](https://github.com/alextidy/SU2_GSoC_26/tree/main/Assignment_5/SoundSpeed.png)
+![Results not found](SoundSpeed.png)
 
 This matches the expected distribution from the pressure and temperature fields of the flow, confirming correct implementation.

@@ -31,6 +31,6 @@ with the previous time-varying function for WallTemp set to a constant, reflecti
 ## Results
 The simulated plate temperature distribution is displayed below:
 
-![Results not found](https://github.com/alextidy/SU2_GSoC_26/tree/main/Assignment_4/temp_spatial.png)
+![Results not found](temp_spatial.png)
 
 The match of the functional form with the implemented analytical expression confirms the correct implementation of this feature.
