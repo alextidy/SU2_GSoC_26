@@ -3,14 +3,12 @@
 The same test case in Assignment 3 was used, including .cfg and .su2 files.
 
 To enable the spatially varying wall temperature, the following area of the Python wrapper dealing directly with vertices was identified:
-'''
 # Set this temperature to all the vertices on the specified CHT marker
     for iVertex in range(nVertex_CHTMarker):
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, WallTemp)
 
 
 This was modified to be:
-'''
 # Set this temperature to all the vertices on the specified CHT marker
 # Define the base wall temperature (user defined)
     # Getting coordinates
