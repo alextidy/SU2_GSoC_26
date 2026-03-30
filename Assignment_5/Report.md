@@ -1,13 +1,13 @@
-# Assignment 5: Addition of Speed of Sound Volume Output
+# Assignment 5: Addition of Speed of Sound Output
 
 ## Implementation
 Speed of sound is already calculated in the compressible solvers as SoundSpeed. Therefore, all that is required is to add extra lines to write the variable to the volume, history and screen outputs - no calculations are necessary.
 
-First, history output was implemented. The CFlowOutput.cpp file was changed to add speed of sound by adding the line:
-AddHistoryOutput("SURFACE_SOUND_SPEED", "Avg_SoundSpeed",  ScreenOutputFormat::SCIENTIFIC, "FLOW_COEFF", "Total average speed of sound on all markers set in MARKER_ANALYZE", HistoryFieldType::COEFFICIENT);
-to CFlowOutput.cpp.
+First, history output was implemented. The following line was added to CFlowOutput.cpp:
 
-Next, Mach number is only defined in the output within the CFlowCompOutput.cpp file. Speed of sound was therefore implemented here, using the lines:
+    AddHistoryOutput("SURFACE_SOUND_SPEED", "Avg_SoundSpeed",  ScreenOutputFormat::SCIENTIFIC, "FLOW_COEFF", "Total average speed of sound on all markers set in MARKER_ANALYZE", HistoryFieldType::COEFFICIENT);
+
+The volume output was implemented next. As Mach number is only defined in the output within the compressible solver file CFlowCompOutput.cpp, the speed of sound was implemented here, using the lines:
 
     AddVolumeOutput("SOUNDSPEED", "SoundSpeed",               "PRIMITIVE", "Speed of Sound");
 within SetVolumeOutputFields(), and
