@@ -7,7 +7,7 @@ To enable the spatially varying wall temperature, the following area of the Pyth
 # Set this temperature to all the vertices on the specified CHT marker
     for iVertex in range(nVertex_CHTMarker):
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, WallTemp)
-'''
+
 
 This was modified to be:
 '''
@@ -24,7 +24,6 @@ This was modified to be:
       SpatialWallTemp = WallTemp + (x * 200)
 
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, SpatialWallTemp)
-'''
 with the previous time-varying function for WallTemp set to a constant, reflecting the steady nature of this simulation. The expected result was a linear increase in temperature across the plate.
 
 
