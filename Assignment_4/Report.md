@@ -9,7 +9,7 @@ To enable the spatially varying wall temperature, the following area of the Pyth
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, WallTemp)
 
 
-This was modified to be:
+This was modified using the MarkerCoordinates() command to fetch the coordinates of all points on a maker and indexing them using iVertex:
     
     # Getting coordinates
     coords = SU2Driver.MarkerCoordinates(CHTMarkerID)
@@ -22,8 +22,9 @@ This was modified to be:
       SpatialWallTemp = WallTemp + (x * 200)
 
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, SpatialWallTemp)
-with the previous time-varying function for WallTemp set to a constant, reflecting the steady nature of this simulation. The expected result was a linear increase in temperature across the plate.
+with the previous time-varying function for WallTemp set to a constant, reflecting the steady nature of this simulation. The expected result was a linear increase in temperature across the plate. Note that x was not normalised by plate length as it is = 1m.
 
+<br />
 
 ## Results
 The simulated plate temperature distribution is displayed below:
