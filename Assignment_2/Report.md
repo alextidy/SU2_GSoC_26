@@ -1,4 +1,7 @@
 # Assignment 2: Steady, Axisymmetric Turbulent Jet
+## Motivation
+The turbulent jet is a classic benchmark for the implementation of turbulent solvers. 
+
 ## Mesh
 The mesh was created in gmsh by scripting a .geo file (see repo) and converting to .su2. Whilst an expanding, trapezoidal flow domain would be better to save comptue, an rectangular, axisymmetric channel was used for ease of scripting and adjusting the mesh. A pipe was implemented in the form of a no-slip wall above the jet to develop a turbulent pipe flow velocity profile at the inlet.
 
@@ -32,6 +35,8 @@ Originally, using a coflow velocity = 0 (as in the experiment) caused instant Na
 
 Additionally, the paper suggests Re=2000 (and thus a velocity = 2.0 [m/s]) at the inlet. However, this produced extremely poor results for the 1/x decay of velocity and radial velocity profile, and is empirically far below turbulent flow. As neither the inlet velocity nor data in within the first 40d downstream of the nozzle was provided, inlet velocity was treated as an unknown. A parameter sweep was conducted until a realistic result was achieved at an inlet velocity of 4.17 [m/s].
 
+<br />
+<br />
 
 ### Numerical Models
 INC_RANS with SST was used as it is the typical solver of choice for this problem, sporting a good balance between shear layer / expansion accuracy and compute. NUM_METHOD_GRAD= WEIGHTED_LEAST_SQUARES was used to ensure accuracy on the non-uniform grid, which LEAST_SQUARES can struggle with.
@@ -45,6 +50,7 @@ Linear solver options:
 - LINEAR_SOLVER_PREC= ILU
 - LINEAR_SOLVER_ERROR= 1E-5
 - LINEAR_SOLVER_ITER= 5
+
 5 iterations with a moderate tolerance was chosen as a compromise between the stability offered by the linear solver for this highly stiff problem and computational speed.
 
 
@@ -62,7 +68,7 @@ The axial distribution followed the theoretical asymptotic behaviour and showed 
 The radial distribution produced poorer results. This may be due to overestimated turbulence parameters, causing the jet to expand faster than it would otherwise. This modelling error would also explain why an inlet velocity corresponding to double the Re number used in the experiment was required to reproduce its results.
 ![Results not found](radial.png)
 
-Residuals were seen to converge satisfactorily, although in a large number of iterations as explained above.
+Residuals were seen to converge satisfactorily to a tolerance of 10^-8, although in a large number of iterations as explained above.
 ![Results not found](residuals.png)
 
 ### References
